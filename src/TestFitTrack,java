@@ -30,7 +30,7 @@ public class TesFitTrack {
 
         // Menguji validasi paket
         System.out.println("\n=== Pengujian Paket ===");
-        member2.setJenisPaket("Gold");
+        member2.setJenisPaket("VIP");
 
         // Menyimpan semua member ke array
         Member[] daftarMember = {
