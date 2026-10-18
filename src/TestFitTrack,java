@@ -1,1 +1,48 @@
 
+public class TesFitTrack {
+
+    public static void main(String[] args) {
+
+        // Membuat empat objek Member
+        Member member1 = new Member(
+            "Alul", "081234567890", "17-08-2026", "Basic"
+        );
+
+        Member member2 = new Member(
+            "Iyan", "082345678901", "18-08-2026", "Premium"
+        );
+
+        Member member3 = new Member(
+            "Citra", "083456789012", "19-08-2026", "VIP"
+        );
+
+        Member member4 = new Member(
+            "Dina", "084567890123", "20-08-2026"
+        );
+
+        // Menguji validasi nomor telepon
+        System.out.println("=== Pengujian Nomor Telepon ===");
+        member1.setNoTelepon("12345");
+
+        System.out.println(
+            "Nomor member1: " + member1.getNoTelepon()
+        );
+
+        // Menguji validasi paket
+        System.out.println("\n=== Pengujian Paket ===");
+        member2.setJenisPaket("Gold");
+
+        // Menyimpan semua member ke array
+        Member[] daftarMember = {
+            member1, member2, member3, member4
+        };
+
+        // Menampilkan seluruh member
+        System.out.println("\n=== Daftar Member FitTrack ===");
+
+        for (int i = 0; i < daftarMember.length; i++) {
+            System.out.println(daftarMember[i].toString());
+        }
+    }
+}
+
