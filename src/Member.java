@@ -41,7 +41,7 @@ public class Member {
   
     public void setNoTelepon(String noTelepon) {
         if (noTelepon != null
-                && noTelepon.matches("0[0-9]+")
+                && noTelepon.matches("[0-9]+")
                 && noTelepon.length() >= MIN_PANJANG_TELEPON) {
             this.noTelepon = noTelepon;
         } else {
