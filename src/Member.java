@@ -56,3 +56,37 @@ public class Member {
         return tanggalDaftar;
     }
 }
+public void setTanggalDaftar(String tanggalDaftar) {
+        if (tanggalDaftar != null && !tanggalDaftar.trim().isEmpty()) {
+            this.tanggalDaftar = tanggalDaftar.trim();
+        } else {
+            System.out.println("Tanggal daftar tidak boleh kosong.");
+        }
+    }
+
+    /** Mengambil jenis paket. @return jenis paket */
+    public String getJenisPaket() {
+        return jenisPaket;
+    }
+
+  
+    public void setJenisPaket(String jenisPaket) {
+        if ("Basic".equals(jenisPaket)
+                || "Premium".equals(jenisPaket)
+                || "VIP".equals(jenisPaket)) {
+            this.jenisPaket = jenisPaket;
+        } else {
+            System.out.println(
+                "Jenis paket tidak valid. Gunakan Basic, Premium, atau VIP."
+            );
+        }
+    }
+
+    
+    @Override
+    public String toString() {
+        return "Nama: " + nama
+                + ", No. Telepon: " + noTelepon
+                + ", Tanggal Daftar: " + tanggalDaftar
+                + ", Paket: " + jenisPaket;
+    }
