@@ -1,92 +1,79 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
 public class Member {
-    private String nama = "Belum diisi";
-    private String noTelepon = "0000000000";
-    private String tanggalDaftar = "01-01-2026";
-    private String jenisPaket = "Basic";
+   private String nama;
+   private String noTelepon;
+   private String tanggalDaftar;
+   private String jenisPaket;
+   private static final int MIN_PANJANG_TELEPON = 10;
 
-    private static final int MIN_PANJANG_TELEPON = 10;
+   public Member(String var1, String var2, String var3, String var4) {
+      this.nama = "Belum diisi";
+      this.noTelepon = "0000000000";
+      this.tanggalDaftar = "01-01-2026";
+      this.jenisPaket = "Basic";
+      this.setNama(var1);
+      this.setNoTelepon(var2);
+      this.setTanggalDaftar(var3);
+      this.setJenisPaket(var4);
+   }
 
-    public Member(String nama, String noTelepon,
-                  String tanggalDaftar, String jenisPaket) {
-        setNama(nama);
-        setNoTelepon(noTelepon);
-        setTanggalDaftar(tanggalDaftar);
-        setJenisPaket(jenisPaket);
-    }
+   public Member(String var1, String var2, String var3) {
+      this(var1, var2, var3, "Basic");
+   }
 
-   
-    public Member(String nama, String noTelepon, String tanggalDaftar) {
-        this(nama, noTelepon, tanggalDaftar, "Basic");
-    }
+   public String getNama() {
+      return this.nama;
+   }
 
+   public void setNama(String var1) {
+      if (var1 != null && !var1.trim().isEmpty()) {
+         this.nama = var1.trim();
+      } else {
+         System.out.println("Nama tidak boleh kosong atau hanya spasi.");
+      }
 
-    public String getNama() {
-        return nama;
-    }
+   }
 
+   public String getNoTelepon() {
+      return this.noTelepon;
+   }
 
-    public void setNama(String nama) {
-        if (nama != null && !nama.trim().isEmpty()) {
-            this.nama = nama.trim();
-        } else {
-            System.out.println("Nama tidak boleh kosong atau hanya spasi.");
-        }
-    }
+   public void setNoTelepon(String var1) {
+      if (var1 != null && var1.matches("[0-9]+") && var1.length() >= 10) {
+         this.noTelepon = var1;
+      } else {
+         System.out.println("Nomor telepon harus diawali angka 0 dan minimal 10 digit.");
+      }
 
-    
-    public String getNoTelepon() {
-        return noTelepon;
-    }
+   }
 
-  
-    public void setNoTelepon(String noTelepon) {
-        if (noTelepon != null
-                && noTelepon.matches("[0-9]+")
-                && noTelepon.length() >= MIN_PANJANG_TELEPON) {
-            this.noTelepon = noTelepon;
-        } else {
-            System.out.println(
-                "Nomor telepon harus diawali angka 0 dan minimal 10 digit."
-            );
-        }
-    }
+   public String getTanggalDaftar() {
+      return this.tanggalDaftar;
+   }
 
+   public void setTanggalDaftar(String var1) {
+      if (var1 != null && !var1.trim().isEmpty()) {
+         this.tanggalDaftar = var1.trim();
+      } else {
+         System.out.println("Tanggal daftar tidak boleh kosong.");
+      }
 
-    public String getTanggalDaftar() {
-        return tanggalDaftar;
-    }
+   }
+
+   public String getJenisPaket() {
+      return this.jenisPaket;
+   }
+
+   public void setJenisPaket(String var1) {
+      if (!"Basic".equals(var1) && !"Premium".equals(var1) && !"VIP".equals(var1)) {
+         System.out.println("Jenis paket tidak valid. Gunakan Basic, Premium, atau VIP.");
+      } else {
+         this.jenisPaket = var1;
+      }
+
+   }
+
+   public String toString() {
+      return "Nama: " + this.nama + ", No. Telepon: " + this.noTelepon + ", Tanggal Daftar: " + this.tanggalDaftar + ", Paket: " + this.jenisPaket;
+   }
 }
-public void setTanggalDaftar(String tanggalDaftar) {
-        if (tanggalDaftar != null && !tanggalDaftar.trim().isEmpty()) {
-            this.tanggalDaftar = tanggalDaftar.trim();
-        } else {
-            System.out.println("Tanggal daftar tidak boleh kosong.");
-        }
-    }
-
-    /** Mengambil jenis paket. @return jenis paket */
-    public String getJenisPaket() {
-        return jenisPaket;
-    }
-
-  
-    public void setJenisPaket(String jenisPaket) {
-        if ("Basic".equals(jenisPaket)
-                || "Premium".equals(jenisPaket)
-                || "VIP".equals(jenisPaket)) {
-            this.jenisPaket = jenisPaket;
-        } else {
-            System.out.println(
-                "Jenis paket tidak valid. Gunakan Basic, Premium, atau VIP."
-            );
-        }
-    }
-
-    
-    @Override
-    public String toString() {
-        return "Nama: " + nama
-                + ", No. Telepon: " + noTelepon
-                + ", Tanggal Daftar: " + tanggalDaftar
-                + ", Paket: " + jenisPaket;
-    }
